@@ -52,7 +52,7 @@ sudo cp /usr/local/bin/solarushotkeydemon.py /usr/local/bin/solarushotkeydemon.p
 
 4. **Descarga el archivo corregido**:
 ```bash
-sudo wget solarushotkeydemon.py -O /usr/local/bin/solarushotkeydemon.py
+sudo wget https://raw.githubusercontent.com/SolimanHub/solarushotkeydemon/refs/heads/main/solarushotkeydemon.py -O /usr/local/bin/solarushotkeydemon.py
 ```
 
 O copia manualmente el contenido:
