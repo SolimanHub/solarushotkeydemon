@@ -178,7 +178,7 @@ Este fix ha sido probado en:
 
 Si pruebas este fix en otro dispositivo, por favor reporta tu experiencia en los Issues.
 
-## 🙏 Agradecimientos
+## Agradecimientos
 
 - Comunidad de ArkOS por el sistema operativo
 - Desarrolladores del emulador Solarus
