@@ -32,6 +32,8 @@ Este repositorio proporciona un `solarushotkeydemon.py` corregido que:
 
 ### Pasos de Instalación
 
+#### Opción A: Via SSH (Recomendado)
+
 1. **Conéctate a tu consola via SSH**:
 ```bash
 ssh ark@<IP_DE_TU_CONSOLA>
@@ -77,6 +79,38 @@ sudo systemctl status solarushotkey
 
 Deberías ver `active (running)` en el estado.
 
+#### Opción B: Editando directamente en la tarjeta SD
+
+Si no puedes conectarte via SSH (sin adaptador de red, problemas de conexión, etc.), puedes editar el archivo directamente:
+
+1. **Apaga tu consola R36S completamente**
+
+2. **Extrae la tarjeta SD del sistema** (normalmente la tarjeta donde está instalado ArkOS)
+
+3. **Inserta la tarjeta SD en tu PC**
+   - En Windows, es posible que solo veas algunas particiones. Necesitarás acceder a la partición Linux (ext4)
+   - Puedes usar herramientas como [Linux File Systems for Windows](https://www.paragon-software.com/home/linuxfs-windows/) o [DiskInternals Linux Reader](https://www.diskinternals.com/linux-reader/)
+   - En Linux o Mac, la partición se montará automáticamente
+
+4. **Navega a la ruta del archivo**:
+   - La ruta completa es: `/usr/local/bin/solarushotkeydemon.py`
+
+5. **Haz backup del archivo original** (recomendado):
+   - Copia `solarushotkeydemon.py` y renómbralo a `solarushotkeydemon.py.backup`
+
+6. **Edita el archivo**:
+   - Abre `solarushotkeydemon.py` con un editor de texto (Notepad++, VSCode, gedit, nano, etc.)
+   - Reemplaza todo el contenido con el código del archivo `solarushotkeydemon.py` de este repositorio
+   - **Importante**: Guarda el archivo con codificación UTF-8 y saltos de línea tipo Unix (LF, no CRLF)
+
+7. **Expulsa la tarjeta SD de forma segura** de tu PC
+
+8. **Reinserta la tarjeta SD en tu R36S** y enciéndela
+
+9. **El fix debería aplicarse automáticamente** al iniciar el servicio
+
+> **Nota para usuarios de Windows**: Si usas Notepad, asegúrate de guardar con codificación UTF-8. Se recomienda usar Notepad++ o VSCode para editar archivos de Linux.
+
 ## Prueba
 
 1. Inicia un juego de Solarus desde EmulationStation
@@ -99,8 +133,8 @@ sudo systemctl stop solarushotkey
 sudo evtest /dev/input/event2
 ```
 
-3. **Presiona Select y anota el código** (ejemplo: `BTN_SELECT CODE (312)`)
-4. **Presiona Start y anota el código** (ejemplo: `BTN_START CODE (313)`)
+3. **Presiona Select y anota el código** (ejemplo: `BTN_SELECT (312)`)
+4. **Presiona Start y anota el código** (ejemplo: `BTN_START (313)`)
 
 5. **Edita el archivo y actualiza los valores**:
 ```bash
@@ -142,19 +176,7 @@ Este fix ha sido probado en:
 - ✅ R36S con GO-Super Gamepad (190000004b4800000011000000010000)
 - ✅ Dispositivos ArkOS con configuración similar
 
-## 🤝 Contribuciones
-
-Las contribuciones son bienvenidas. Si encuentras un bug o tienes una mejora:
-
-1. Haz fork del repositorio
-2. Crea una rama para tu feature (`git checkout -b feature/mejora`)
-3. Commit tus cambios (`git commit -am 'Agrega nueva mejora'`)
-4. Push a la rama (`git push origin feature/mejora`)
-5. Abre un Pull Request
-
-## 📄 Licencia
-
-Este proyecto está bajo la Licencia MIT. Ver el archivo `LICENSE` para más detalles.
+Si pruebas este fix en otro dispositivo, por favor reporta tu experiencia en los Issues.
 
 ## 🙏 Agradecimientos
 
